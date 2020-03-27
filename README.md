@@ -45,7 +45,7 @@
 
 ```js
 function Header() {
-  return <Button />;
+  return <Button />
 }
 ```
 
@@ -57,12 +57,12 @@ function Button() {
     'button',
     { type: button },
     React.createElement('span', { class: 'icon' })
-  );
+  )
 }
 
-<button type='button'>
+;<button type='button'>
   <span class='icon'></span>
-</button>;
+</button>
 ```
 
 depois do JSX:
@@ -73,7 +73,7 @@ function Button() {
     <button type='button'>
       <span class='icon'></span>
     </button>
-  );
+  )
 }
 ```
 
@@ -84,22 +84,22 @@ function Button() {
 imperativo:
 
 ```js
-const notificacaoes = 0;
+const notificacaoes = 0
 
 function montaBadge(num) {
   if (notificacoes === 0 && num > 0) {
     // adiciona badge
-    container.appendChild(badge);
+    container.appendChild(badge)
     //...
   }
   if (notificaoes !== 0 && num > 0) {
     // apenas muda o número
-    badge.innerHTML = num;
+    badge.innerHTML = num
     //...
   }
   if (notificacoes !== 0 && num === 0) {
     // remove o badge
-    container.removeChild(badge);
+    container.removeChild(badge)
     // ...
   }
 }
@@ -115,7 +115,7 @@ function Badge({ num }) {
       {num > 0 && <div id='badge'>{num}</div>}
       <span class='icon'></span>
     </div>
-  );
+  )
 }
 ```
 
@@ -157,7 +157,7 @@ module.exports = {
     // exemplo: jsx
     '@babel/preset-react',
   ],
-};
+}
 ```
 
 4. adiciona o `babel-loader` e o `webpack-dev-server`:
@@ -169,7 +169,7 @@ $ yarn add babel-loader webpack-dev-server -D
 5. configura o `webpack.config.js` na raiz do projeto:
 
 ```js
-const { resolve } = require('path');
+const { resolve } = require('path')
 
 module.exports = {
   entry: resolve(__dirname, 'src', 'index.js'),
@@ -191,7 +191,7 @@ module.exports = {
       },
     ],
   },
-};
+}
 ```
 
 6. configura os scripts no `package.json`:
@@ -209,4 +209,27 @@ module.exports = {
 
 ```shell
 $ yarn dev
+```
+
+## criando o componente raiz
+
+`src/index.js`:
+
+```js
+import React from 'react'
+import { render } from 'react-dom'
+
+import App from './App'
+
+render(<App />, document.getElementById('app'))
+```
+
+`src/App.js`:
+
+```js
+import React from 'react'
+
+export default function App() {
+  return <h1>Hello World</h1>
+}
 ```
