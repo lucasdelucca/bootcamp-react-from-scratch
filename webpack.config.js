@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
 
 module.exports = {
   entry: resolve(__dirname, 'src', 'index.js'),
@@ -18,6 +18,15 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          // Inject CSS into the DOM.
+          { loader: 'style-loader' },
+          // The css-loader interprets @import and url() like import/require() and will resolve them.
+          { loader: 'css-loader' },
+        ],
+      },
     ],
   },
-};
+}

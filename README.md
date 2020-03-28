@@ -233,3 +233,25 @@ export default function App() {
   return <h1>Hello World</h1>
 }
 ```
+
+### importando css
+
+1. adicionar o `style-loader` e `css-loader`:
+
+```shell
+$ yarn add style-loader css-loader -D
+```
+
+2. adicionar esse objeto ao array de rules ao `webpack.config.js`:
+
+```json
+ {
+  test: /\.css$/,
+  use: [
+    // Inject CSS into the DOM.
+    { loader: 'style-loader' },
+    // The css-loader interprets @import and url() like import/require() and will resolve them.
+    { loader: 'css-loader' },
+  ],
+},
+```
