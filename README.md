@@ -255,3 +255,28 @@ $ yarn add style-loader css-loader -D
   ],
 },
 ```
+
+### importando imagens
+
+1. adicionar o `file-loader`:
+
+```
+$ yarn add file-loader -D
+```
+
+`App.js`:
+
+```javascript
+import React from 'react'
+
+import profile from './assets/profile.JPG'
+
+export default function App() {
+  return (
+    <>
+      <h1>Hello World</h1>
+      <img width='300px' src={profile} />
+    </>
+  )
+}
+```
