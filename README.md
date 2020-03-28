@@ -244,7 +244,7 @@ $ yarn add style-loader css-loader -D
 
 2. adicionar esse objeto ao array de rules ao `webpack.config.js`:
 
-```json
+```js
  {
   test: /\.css$/,
   use: [
@@ -279,4 +279,44 @@ export default function App() {
     </>
   )
 }
+```
+
+### class components
+
+o babel por pradrão não entende as propriedades definidas dentro da classe, apenas dentro do `constructor`.
+
+para usar o `state` fora do `constructor` é preciso adicionar `plugin-proposal-class-properties` às dependências:
+
+```
+$ yarn add @babel/plugin-proposal-class-properties -D
+```
+
+adicionar ao `babel.config.js`:
+
+```js
+plugins: ['@babel/plugin-proposal-class-properties'],
+```
+
+class component:
+
+```
+import React, { Component } from 'react'
+
+class TechList extends Component {
+  state = {
+    techs: ['NodeJS', 'ReactJS', 'React Native'],
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.state.techs.map(tech => (
+          <li>{tech}</li>
+        ))}
+      </ul>
+    )
+  }
+}
+
+export default TechList
 ```

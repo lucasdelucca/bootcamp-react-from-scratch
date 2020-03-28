@@ -7,4 +7,5 @@ module.exports = {
     // exemplo: jsx
     '@babel/preset-react',
   ],
-};
+  plugins: ['@babel/plugin-proposal-class-properties'],
+}
