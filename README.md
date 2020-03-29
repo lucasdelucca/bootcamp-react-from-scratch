@@ -1,5 +1,7 @@
 # React from scratch
 
+algumas anotações e testes sobre o (react)[github.com].
+
 ## conceitos
 
 ### o que é?
@@ -299,7 +301,7 @@ plugins: ['@babel/plugin-proposal-class-properties'],
 
 class component:
 
-```
+```js
 import React, { Component } from 'react'
 
 class TechList extends Component {
@@ -319,4 +321,93 @@ class TechList extends Component {
 }
 
 export default TechList
+```
+
+### estado e imutabilidade
+
+```js
+handleInputChange = e => {
+  this.setState({ newTech: e.target.value })
+}
+
+handleSubmit = e => {
+  e.preventDefault()
+  this.setState({
+    techs: [...this.state.techs, this.state.newTech],
+    newTech: '',
+  })
+}
+
+handleDelete = tech => {
+  this.setState({
+    techs: this.state.techs.filter(t => t !== tech),
+  })
+}
+```
+
+### props
+
+`TechItem.js`
+
+```js
+import React from 'react'
+
+export default function TechList({ tech, onDelete }) {
+  return (
+    <li>
+      {tech}{' '}
+      <button type='button' onClick={onDelete}>
+        Remover
+      </button>
+    </li>
+  )
+}
+```
+
+`TechList`:
+
+```js
+// ...
+render() {
+ return (
+   <form onSubmit={this.handleSubmit}>
+     <ul>
+       {this.state.techs.map(tech => (
+         <TechItem
+           key={tech}
+           tech={tech}
+           onDelete={() => this.handleDelete(tech)}
+         />
+       ))}
+     </ul>
+     <input
+       type='text'
+       onChange={this.handleInputChange}
+       value={this.state.newTech}
+     />
+     <button type='submit'>Enviar</button>
+   </form>
+ )
+}
+// ...
+```
+
+### default props
+
+```js
+export default function TechItem({ tech = 'oculto', onDelete }) {...}
+
+// ou
+
+// funciona assim para classes e funcs
+TechItem.defaultProps = {
+  tech: 'oculto',
+}
+
+// na classe tambem pode ser escrito assim
+class TechItem extends Component{
+  static defaultProps = {
+    tech: 'oculto',
+  }
+}
 ```
