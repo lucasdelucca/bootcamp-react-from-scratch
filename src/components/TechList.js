@@ -43,7 +43,7 @@ class TechList extends Component {
           onChange={this.handleInputChange}
           value={this.state.newTech}
         />
-        <TechItem></TechItem>
+        <TechItem />
         <button type='submit'>Enviar</button>
       </form>
     )

@@ -411,3 +411,18 @@ class TechItem extends Component{
   }
 }
 ```
+
+### proptypes
+
+```
+yarn add prop-types
+```
+
+```js
+import PropTypes from 'prop-types'
+
+TechItem.propTypes = {
+  tech: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+}
+```
