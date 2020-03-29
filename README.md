@@ -266,6 +266,17 @@ $ yarn add style-loader css-loader -D
 $ yarn add file-loader -D
 ```
 
+2. adicionar a seguinte `rule` ao `webpack.config.js`:
+```js
+{
+  test: /.*\.(gif|png|jpe?g)$/i,
+  use: {
+    loader: 'file-loader',
+  },
+},
+```
+
+
 `App.js`:
 
 ```javascript
