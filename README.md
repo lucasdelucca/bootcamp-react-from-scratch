@@ -426,3 +426,20 @@ TechItem.propTypes = {
   onDelete: PropTypes.func.isRequired,
 }
 ```
+
+### ciclo de vida do componente
+
+```js
+// executado assim que o componente aparece em tela
+componentDidMount() {}
+
+// executado sempre que houver alteração nas props ou estado
+componentDidUpdate(prevProps, prevState) {
+ // this.props, this.state
+}
+
+// executado quando o componente deixa de existir
+componentWillUnmount() {
+
+}
+```
