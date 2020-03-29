@@ -1,6 +1,6 @@
 # React from scratch
 
-algumas anotações e testes sobre o (react)[github.com].
+algumas anotações e testes sobre o [react](https://github.com/facebook/react).
 
 ## conceitos
 
@@ -8,7 +8,7 @@ algumas anotações e testes sobre o (react)[github.com].
 
 - biblioteca para construção de interfaces;
 - usado para construção de Single-Page-Applications;
-- todo o ecossisistem React pode ser chamado de framework;
+- todo o ecossisistema React pode ser chamado de framework;
 - tudo fica dentro do JavaScript;
 
   ```js
@@ -81,8 +81,8 @@ function Button() {
 
 ### imperativo vs declarativo
 
-![notification icon](./readme-files/images/notification-icon.png =44x44)
 
+<img src="readme-files/images/notification-icon.png" width="32">
 imperativo:
 
 ```js
